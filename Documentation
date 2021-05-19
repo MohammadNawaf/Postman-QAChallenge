@@ -1,0 +1,23 @@
+URL Parameters
+id (Int) required: ID for user.
+
+Query parameters
+lastId (Int): Last ID in the collection of entries.
+
+limit (Int): Number of entries to return (default: 10).
+
+typeIds ([Int]): Filtering of types (default: all).
+
+Parameters
+email (String) required: Email for user.
+
+password (String) required: Password for user.
+
+name (String): User's name.
+
+Response codes
+200 OK
+
+401 Unauthorized
+
+412 Precondition failed
