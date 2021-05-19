@@ -1,23 +1,21 @@
 URL Parameters
-id (Int) required: ID for user.
 
-Query parameters
-lastId (Int): Last ID in the collection of entries.
 
-limit (Int): Number of entries to return (default: 10).
+
 
 typeIds ([Int]): Filtering of types (default: all).
 
-Parameters
-email (String) required: Email for user.
 
-password (String) required: Password for user.
+Parameters:
+description -[String]— A search term, such as "ruby" or "java". This parameter is aliased to search.
+location -[String] — A city name, zip code, or other location search term.
+lat -[String] — A specific latitude. If used, you must also send long and must not send location.
+long -[String] — A specific longitude. If used, you must also send lat and must not send location.
+full_time -[String] — If you want to limit results to full time positions set this parameter to 'true'.
 
-name (String): User's name.
-
-Response codes
+Response codes:
 200 OK
-
-401 Unauthorized
-
+201 Created
+202 Accepted 
+400 Bad Request
 412 Precondition failed
