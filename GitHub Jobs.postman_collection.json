@@ -1,0 +1,754 @@
+{
+	"info": {
+		"_postman_id": "c3f15398-335c-4e37-80d4-5594e60e6b55",
+		"name": "GitHub Jobs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Display Jobs by valid description",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c03841ec-7e60-41a9-a4ed-e0626cb1fedc",
+						"exec": [
+							"pm.test(\" Verify Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"  pm.test(\" Getting the resources and availabilites list \" , function(){\r",
+							"\r",
+							"    pm.expect(pm.response.code).to.be = ([34]);\r",
+							"    if(pm.response.code ===34){\r",
+							"        var jsonData = JSON.parse(responseBody);\r",
+							"        var sizeOK= 1;\r",
+							"        if(jsonData.resources.length>0){\r",
+							"\r",
+							"        }\r",
+							"        console.log(Boolean(jsonData.resources.length>1))\r",
+							"    }\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "walmart",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=python",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "python"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by invalid description",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8261060b-570e-4954-933c-3e439b572973",
+						"exec": [
+							"pm.test(\" Verify Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=test2021",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "test2021"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by Empty description",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75af2964-13f3-4930-82ab-3c61e654d6c3",
+						"exec": [
+							"pm.test(\" Verify Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by description and valid location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3a6724d-9856-40ae-b299-44eb23aa33f6",
+						"exec": [
+							"pm.test(\" Verify Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions?description=python&location=berlin",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "python"
+						},
+						{
+							"key": "location",
+							"value": "berlin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by invalid location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions?location=berlinaaa",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "berlinaaa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by not exist location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?location=AMMAN",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "AMMAN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by empty location Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ce99d86-1cba-43fc-b5d4-8a6277a989e7",
+						"exec": [
+							"pm.test(\"First name matches\", function () {\r",
+							"   var jsonData = pm.response.json();\r",
+							"   pm.expect(jsonData.data.first_name).have.property(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?location= &description=ruby",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": " "
+						},
+						{
+							"key": "description",
+							"value": "ruby"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Jobs by part of location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?location=Berl",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "Berl"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search for location by zip code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?location=86368",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "86368"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search for location by full address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?location=",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search for location by country name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?location=",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for valid Lat and Long",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "37.3229978"
+						},
+						{
+							"key": "long",
+							"value": "-122.0321823"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for invalid Lat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?lat=37444&long=-122.0321823",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "37444"
+						},
+						{
+							"key": "long",
+							"value": "-122.0321823"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for invalid Long",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?lat=37444&long=-122.0321823",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "37444"
+						},
+						{
+							"key": "long",
+							"value": "-122.0321823"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for full time",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa271da4-b113-4686-bf85-f500c748a915",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Kubernetes\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?lat=37444&long=-122.0321823",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "37444"
+						},
+						{
+							"key": "long",
+							"value": "-122.0321823"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for part time",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?full_time=false",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "full_time",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for valid combinations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=python&location=Elk Grove, Ca - REMOTE&full_time=true",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "python"
+						},
+						{
+							"key": "location",
+							"value": "Elk Grove, Ca - REMOTE"
+						},
+						{
+							"key": "full_time",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for invalid combinations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=python&location=test2021&full_time=true",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "python"
+						},
+						{
+							"key": "location",
+							"value": "test2021"
+						},
+						{
+							"key": "full_time",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pagination, page 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56595579-15c4-466e-a927-a2438e978627",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=&page=1",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pagination, page 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "caf84d2a-5072-46e6-883f-6ca8b11777ab",
+						"exec": [
+							"pm.test(\" Verify Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=ruby&page=1",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "ruby"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pagination, no data page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jobs.github.com/positions.json?description=&page=4",
+					"protocol": "https",
+					"host": [
+						"jobs",
+						"github",
+						"com"
+					],
+					"path": [
+						"positions.json"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
