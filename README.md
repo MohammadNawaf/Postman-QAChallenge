@@ -4,7 +4,7 @@
 *
 *S1. Download and intall postman through the below link:
 *    https://www.postman.com/downloads/
-*S2. Install the postman after downloading is copmpleted
+#S2. Install the postman after downloading is copmpleted
 *
 *--> Hint: Sign in to postman to never loose you progress
 *
