@@ -23,7 +23,7 @@ Step C. Follow the bellow commands to run th e targeted collection from CMD: <br
        To  run  the collection :
        newman run https://www.getpostman.com/collections/df353dd6162705203daa   -n 3             .....(Press enter )   <br />
        
-       Hint: -n 3 will run the collection for 3 iterations , you can change it bu just change the number after -n  <br />
+       Hint: -n, --iteration-count [number]	Define the number of iterations to run , you can change it bu just change the number after -n  <br />
         
         
 *********************************** [ 2nd way]**************  run from Postman ************************** <br />
