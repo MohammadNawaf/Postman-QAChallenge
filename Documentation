@@ -1,12 +1,20 @@
 URL Parameters
 id (Int) required: ID for user.
 
-Query parameters
-lastId (Int): Last ID in the collection of entries.
+* collection probably uses environment variables. To provide an accompanying set of environment variables, export the template from Postman and run them with the -e flag.
+* Newman provides a rich set of options to customize a run. You can retrieve a list of options by running it with the -h flag.
 
-limit (Int): Number of entries to return (default: 10).
 
-typeIds ([Int]): Filtering of types (default: all).
+Option	Details For running from CMD:
+
+-h, --help	Output usage information
+-v, --version	Output the version number
+--folder [folderName]	Specify a single folder to run from a collection.
+-d, --iteration-data [file]	Specify a data file to use either json or csv
+-g, --globals [file]	Specify a Postman globals file as JSON [file]
+-n, --iteration-count [number]	Define the number of iterations to run
+
+
 
 Parameters
 email (String) required: Email for user.
